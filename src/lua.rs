@@ -115,7 +115,9 @@ impl zed::Extension for LuaExtension {
     ) -> Result<zed::Command> {
         Ok(zed::Command {
             command: self.language_server_binary_path(language_server_id, worktree)?,
-            args: Default::default(),
+            args: vec![String::from(
+                "--configpath=E:/LuaLib/config.lua"
+            )],
             env: Default::default(),
         })
     }
